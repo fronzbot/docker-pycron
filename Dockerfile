@@ -1,4 +1,11 @@
 FROM python:3.7-alpine
+LABEL maintainer="Kevin Fronczak <kfronczak@gmail.com>"
+
+VOLUME /work
+VOLUME /share
+
+RUN mkdir /app
+WORKDIR /app
 
 RUN apk update && \
     apk add libxml2-dev \
@@ -25,11 +32,12 @@ RUN apk update && \
             tk-dev \
             tcl-dev
 
-WORKDIR /app
-ADD requirements.txt /app
-
+COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
+COPY VERSION VERSION
+COPY app/ .
+COPY app/config.yaml.example /work
 
-ADD VERSION /app
+WORKDIR /work
 
-VOLUME /work /share
+CMD ["/app/start.sh"]

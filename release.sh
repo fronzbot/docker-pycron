@@ -3,9 +3,8 @@ set -ex
 USERNAME=fronzbot
 IMAGE=python
 
-git pull
+git pull origin master
 
-docker run --rm -v "$PWD":/app $USERNAME/$IMAGE
 version=`cat VERSION`
 echo "version: $version"
 

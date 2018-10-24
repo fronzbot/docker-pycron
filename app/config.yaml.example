@@ -1,0 +1,6 @@
+test_script:
+  schedule:
+    minutes: 5
+  args:
+    - output=test.txt
+    - verbose
