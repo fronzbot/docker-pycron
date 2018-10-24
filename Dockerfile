@@ -40,4 +40,7 @@ COPY app/config.yaml.example /work
 
 WORKDIR /work
 
+RUN ["chmod", "+x", "/app/start.sh"]
+RUN ["chmod", "+x", "/app/run.py"]
+
 CMD ["/app/start.sh"]
