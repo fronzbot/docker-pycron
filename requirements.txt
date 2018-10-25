@@ -1,3 +1,2 @@
-imageio==2.4.1
 pyyaml==3.13
 python-crontab==2.3.5
