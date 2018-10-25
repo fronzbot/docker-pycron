@@ -23,7 +23,7 @@ def new_job(cron, filename, config):
         for arg in config[CONFIG_ARGS]:
             filename = "{} {}".format(filename, arg)
 
-    return cron.new(command="python {}".format(filename))
+    return cron.new(command="/usr/local/bin/python {}".format(filename))
 
 
 def schedule_job(cron, job, config):
@@ -67,5 +67,5 @@ def load_yaml(fname):
         return yaml.load(cfg_file)
 
 if __name__ == '__main__':
-    cron = CronTab(user=True)
+    cron = CronTab(user='root', tabfile='/etc/cron.d/pycron')
     create_script_configs(cron, "{}/{}".format(DEFAULT_WORK, DEFAULT_CONFIG))

@@ -1,6 +1,8 @@
 #!/bin/sh
 
+service rsyslog start
+service cron restart
 python /app/run.py
-crond -b -l 8 -L /work/cron.log
+crontab /etc/cron.d/pycron
 trap : TERM INT
 tail -f /dev/null & wait
