@@ -12,6 +12,7 @@ RUN apt-get update && \
     cron \
     ffmpeg \
     imagemagick \
+    gifsicle \
     libav-tools \
     rsyslog && \
     apt-get clean && \

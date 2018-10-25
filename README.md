@@ -10,6 +10,7 @@ Please note that this docker uses Python 3.7 and has the following packages inst
 cron
 ffmpeg
 imagemagick
+gifsicle
 ```
 
 Additional packages can be installed in the docker using `apt-get install`, or you can request they be added to the docker image.
