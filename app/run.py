@@ -67,5 +67,6 @@ def load_yaml(fname):
         return yaml.load(cfg_file)
 
 if __name__ == '__main__':
-    cron = CronTab(user='root', tabfile='/etc/cron.d/pycron')
+    cron = CronTab(user='root')
     create_script_configs(cron, "{}/{}".format(DEFAULT_WORK, DEFAULT_CONFIG))
+    cron.write('/etc/cron.d/pycron')

@@ -24,8 +24,6 @@ COPY VERSION VERSION
 COPY app/ .
 
 WORKDIR /work
-RUN touch /etc/cron.d/pycron
-RUN chmod 0644 /etc/cron.d/pycron
 RUN chmod +x /app/start.sh
 RUN chmod +x /app/run.py
 
