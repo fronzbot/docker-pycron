@@ -13,7 +13,6 @@ CONFIG_ARGS = 'args'
 CONFIG_DAYS = 'days'
 CONFIG_HOURS = 'hours'
 CONFIG_MINUTES = 'minutes'
-CONFIG_SECONDS = 'seconds'
 
 
 def new_job(cron, filename, config):
@@ -32,13 +31,13 @@ def schedule_job(cron, job, config):
         schedule = config[CONFIG_SCHEDULE]
         print("{}: {}".format(CONFIG_SCHEDULE, schedule))
         if CONFIG_DAYS in schedule:
-            job.day.every(schedule[CONFIG_DAYS])
+            job.every(schedule[CONFIG_DAYS]).days()
         elif CONFIG_HOURS in schedule:
-            job.hour.every(schedule[CONFIG_HOURS])
+            job.every(schedule[CONFIG_HOURS]).hours()
         elif CONFIG_MINUTES in schedule:
-            job.minute.every(schedule[CONFIG_MINUTES])
-        elif CONFIG_SECONDS in schedule:
-            job.second.every(schedule[CONFIG_SECONDS])
+            job.every(schedule[CONFIG_MINUTES]).minutes()
+        else:
+            print("Invalid entry {}".format(schedule))
 
     except KeyError:
         print("{} not found in {}".format(CONFIG_SCHEDULE, DEFAULT_CONFIG))
