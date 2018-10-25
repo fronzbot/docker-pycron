@@ -9,4 +9,4 @@ fi
 python /app/run.py
 crontab /etc/cron.d/pycron
 trap : TERM INT
-tail -f /dev/null & wait
+tail -f /var/log/syslog & wait
