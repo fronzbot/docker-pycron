@@ -22,6 +22,7 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 COPY VERSION VERSION
 COPY app/ .
+COPY system/rsyslog.conf /etc/rsyslog.conf
 
 WORKDIR /work
 RUN chmod +x /app/start.sh
