@@ -11,6 +11,7 @@ cron
 ffmpeg
 imagemagick
 gifsicle
+logrotate
 ```
 
 Additional packages can be installed in the docker using `apt-get install`, or you can request they be added to the docker image.
@@ -18,6 +19,10 @@ Additional packages can be installed in the docker using `apt-get install`, or y
 ### Volume Maps
 
 Map the `/work` directory to wherever you want your scripts stored and the `/share` directory to wherever you want saved data to go (not needed, but can be useful).
+
+### First time setup
+
+The first time you install the container, a `config.yaml` and `example.py` file will be placed in your mapped `work` volume.  These just show the syntax for using the container.  Once you're ready to set everything up, you can delete or modify those files.  The next time the container is installed or restarted, it will look for the existance of `config.yaml` and will only create a new example version if one does not already exist.
 
 ### Scheduling Scripts
 
@@ -44,6 +49,20 @@ fast_script:
 ```
 
 Note that any time you edit your `config.yaml` file you will need to restart the container.  Script edits can be done on-the-fly without restarts.
+
+### Logging scripts
+
+You can add print messages to your scripts which are then printed to `/var/log/syslog` (useful for running on [unraid](https://unraid.net) so you can view your script outputs in the log window).  To do this, simply add the following to the top of your script(s):
+
+```python
+from pycron import LOGGER
+```
+
+You can then create log statements by using the `LOGGER.[LEVEL]` syntax where `[LEVEL]` can be `debug`, `info`, `warning`, or `error`.  So to write an error message to the log, you would use the following syntax (instead of using `print()`):
+
+```python
+LOGGER.error("Oh no, something went wrong!")
+```
 
 ### Custom Python Packages
 

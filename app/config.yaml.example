@@ -1,6 +1,5 @@
-test_script:
+# This is an example yaml config file.
+# Remove the following entry when you're ready to set up pycron.
+example:
   schedule:
-    minutes: 5
-  args:
-    - output=test.txt
-    - verbose
+    minutes: 1

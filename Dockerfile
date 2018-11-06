@@ -25,6 +25,9 @@ COPY VERSION VERSION
 COPY app/ .
 COPY system/rsyslog.conf /etc/rsyslog.conf
 
+RUN python setup.py bdist_wheel && pip install dist/*.whl
+RUN rm -rf build dist *egg.info
+
 WORKDIR /work
 RUN chmod +x /app/start.sh
 RUN chmod +x /app/run.py
