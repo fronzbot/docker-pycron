@@ -1,6 +1,6 @@
 # docker-pycron
 
-![Docker Pulls](https://img.shields.io/docker/pulls/fronzbot/pycron.log)
+![Docker Pulls](https://img.shields.io/docker/pulls/fronzbot/pycron.svg)
 ![Github tag](https://img.shields.io/github/tag-date/fronzbot/docker-pycron.svg)
 
 This is a generic python docker used to run custom scripts and what not.
