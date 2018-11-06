@@ -14,7 +14,8 @@ RUN apt-get update && \
     imagemagick \
     gifsicle \
     libav-tools \
-    rsyslog && \
+    rsyslog \
+    logrotate && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
