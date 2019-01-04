@@ -1,2 +1,2 @@
-pyyaml==3.13
+ruamel.yaml==0.15.81
 python-crontab==2.3.5

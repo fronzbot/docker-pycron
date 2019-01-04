@@ -1,6 +1,6 @@
 import os
 import time
-import yaml
+from ruamel.yaml import YAML
 from subprocess import call
 from crontab import CronTab
 
@@ -62,6 +62,7 @@ def create_script_configs(cron, config_file):
 
 def load_yaml(fname):
     """Load yaml file."""
+    yaml = YAML(typ='safe')
     with open(fname) as cfg_file:
         return yaml.load(cfg_file)
 
