@@ -3,7 +3,7 @@
 ![Docker Pulls](https://img.shields.io/docker/pulls/fronzbot/pycron.svg)
 ![Github tag](https://img.shields.io/github/tag-date/fronzbot/docker-pycron.svg)
 
-This is a generic python docker used to run custom scripts and what not.
+This is a generic python docker used to run custom scripts and what not.  [Docker Hub URL](https://hub.docker.com/r/fronzbot/pycron)
 
 ## Usage
 
@@ -82,5 +82,5 @@ By default, the following python packages are installed:
 
 ```
 python-crontab
-pyyaml
+ruamel.yaml
 ```
